@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "2F2Chrome",
+  "version": "1.0",
+  "description": "Automatically captures 2FA codes from Google Messages",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "notifications",
+    "clipboardWrite",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://messages.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://messages.google.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["patterns.json", "icons/icon128.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

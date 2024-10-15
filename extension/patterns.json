@@ -1,0 +1,100 @@
+{
+    "codePatterns": [
+      {
+        "platformName": "Generic",
+        "platformPattern": "(?:verification code|security code|access code|code is):\\s*(\\d{4,8})"
+      },
+      {
+        "platformName": "Twilio",
+        "platformPattern": "Your Twilio verification code is: (\\d{6})"
+      },
+      {
+        "platformName": "Google",
+        "platformPattern": "G-(\\d{6}) is your Google verification code"
+      },
+      {
+        "platformName": "Facebook",
+        "platformPattern": "Facebook code: (\\d{5})"
+      },
+      {
+        "platformName": "Amazon",
+        "platformPattern": "Your Amazon verification code is: (\\d{6})"
+      },
+      {
+        "platformName": "Apple",
+        "platformPattern": "Your Apple ID code is: (\\d{6})"
+      },
+      {
+        "platformName": "Microsoft",
+        "platformPattern": "Microsoft code: (\\d{8})"
+      },
+      {
+        "platformName": "Twitter",
+        "platformPattern": "Your Twitter confirmation code is (\\d{6})"
+      },
+      {
+        "platformName": "Instagram",
+        "platformPattern": "Instagram code: (\\d{6})"
+      },
+      {
+        "platformName": "Link by Stripe",
+        "platformPattern": "(\\d{6}) is your Link verification code"
+      },
+      {
+        "platformName": "Chase",
+        "platformPattern": "From: Chase\\nWe'll NEVER call you to ask for this code\\.\\nOne-Time Code:(\\d{8})\\nOnly use this online\\. Code expires in 30 min\\."
+      },
+      {
+        "platformName": "Taishin Bank",
+        "platformPattern": "驗證碼為(\\d{4,8})"
+      },
+      {
+        "platformName": "DigitalOcean",
+        "platformPattern": "([\\w\\d]{6}) is your DigitalOcean verification code\\."
+      },
+      {
+        "platformName": "CN General",
+        "platformPattern": "验证码([是为：:\\s]*)(\\d{4,8})"
+      },
+      {
+        "platformName": "Geico",
+        "platformPattern": "GEICO: Your verification code is: (\\w{6}). It expires in 10 minutes."
+      },
+      {
+        "platformName": "DBS Bank",
+        "platformPattern": "To approve, use [A-Z]{3}-(\\d{6}) within"
+      },
+      {
+        "platformName": "OneLogin",
+        "platformPattern": "Security Code: (\\w{6}) \\n\\nSecurity code will expire in 2 minutes\\."
+      },
+      {
+        "platformName": "USPS",
+        "platformPattern": "USPS Account Services: your validation code is (\\w{6})"
+      },
+      {
+        "platformName": "AOD",
+        "platformPattern": "AOD FCU security code: (\\d{6})"
+      },
+      {
+        "platformName": "MIGov",
+        "platformPattern": "Your passcode is \\n\\d{4}-(\\d{6})\\n\\nThe passcode will expire in 5 minutes."
+      },
+      {
+        "platformName": "MPC",
+        "platformPattern": "Dear [\\s\\S]+,\\n\\nYour security code is: (\\d{5,6})\\n\\nThis code expires in 15 minutes"
+      },
+      {
+        "platformName": "PF Bank",
+        "platformPattern": "^(\\d{8})\\nValid 5 minutes"
+      },
+      {
+        "platformName": "Vodafone",
+        "platformPattern": "Don't share this code with anyone\\. Fraudsters can use it to access your online account and place orders\\. The code is valid for 20 minutes\\. Your code is ([0-9A-Z]{5})\\."
+      },
+      {
+        "platformName": "Amex SafeKey",
+        "platformPattern": "Your Amex SafeKey One-Time Password for INR \\d+\\.\\d\\d is (\\d{6})\\. Valid for \\d+ mins for Card ending xxxxx\\."
+      }
+    ]
+  }

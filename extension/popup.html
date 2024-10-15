@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2F2Chrome</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <span class="title">2F2Chrome</span>
+        <button id="settingsToggle" class="settings-button"><i class="fas fa-cog"></i></button>
+    </div>
+    <hr>
+    <div class="container">
+        <div id="copyIcon" class="icon" title="Click to copy">
+            <i class="far fa-copy"></i>
+        </div>
+        <div class="content">
+            <h1>Latest Capture</h1>
+            <div id="lastCode">None</div>
+        </div>
+    </div>
+    <hr>
+    <div id="settingsPanel" class="settings">
+        <div class="setting-item">
+            <label for="showNotifications">Notifications</label>
+            <input type="checkbox" id="showNotifications">
+        </div>
+        <div class="setting-item">
+            <label for="darkMode">Dark Mode</label>
+            <input type="checkbox" id="darkMode">
+        </div>
+        <div class="setting-item-with-button">
+            <div class="left-group">
+                <label for="recordHistory">Code History</label>
+                <button id="viewHistory" class="view-button">View</button>
+            </div>
+            <input type="checkbox" id="recordHistory">
+        </div>
+        <div id="codeHistory" class="code-history"></div>
+    </div>
+    <div class="footer">
+        <a href="https://github.com/joshua-wise/2F2Chrome" target="_blank">GitHub</a>
+        <a href="https://buymeacoffee.com/jwise" target="_blank">Donate</a>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

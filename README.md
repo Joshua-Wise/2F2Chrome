@@ -35,7 +35,7 @@ Option A:
 
 Option B:
 
-1. Clone this repository or download the source code.
+1. Clone this extension directory of this repository or download the source code.
 2. Open Chrome and navigate to `chrome://extensions`.
 3. Enable "Developer mode" in the top right corner.
 4. Click "Load unpacked" and select the directory containing the extension files.

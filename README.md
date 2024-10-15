@@ -2,6 +2,8 @@
 
 2F2Chrome is a Chrome extension designed to automatically capture two-factor authentication (2FA) codes from Google Messages for use within the Chrome web browser.
 
+![2F2Chrome Notification Screenshot](https://github.com/Joshua-Wise/2F2Chrome/blob/main/screenshots/Notification.png?raw=true)
+
 ## Features
 
 - Automatically detects 2FA codes from various platforms

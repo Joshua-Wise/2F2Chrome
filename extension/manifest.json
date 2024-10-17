@@ -5,10 +5,8 @@
   "description": "Automatically captures 2FA codes from Google Messages",
   "permissions": [
     "storage",
-    "activeTab",
     "notifications",
-    "clipboardWrite",
-    "scripting"
+    "clipboardWrite"
   ],
   "host_permissions": [
     "https://messages.google.com/*"

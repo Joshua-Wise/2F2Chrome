@@ -31,7 +31,7 @@
 
 Option A:
 
-1. Install from the Chrome Web Store: (pending approval) [2F2Chrome](https://chromewebstore.google.com/detail/afbmolpgnihkdnhepngkbkljjkggjhjp)
+1. Install from the Chrome Web Store: [2F2Chrome](https://chromewebstore.google.com/detail/2f2chrome/afbmolpgnihkdnhepngkbkljjkggjhjp)
 
 Option B:
 

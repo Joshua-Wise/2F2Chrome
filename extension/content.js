@@ -1,5 +1,13 @@
 console.log('2F2Chrome content script loaded');
 
+chrome.runtime.sendMessage({action: "contentScriptLoaded"}, response => {
+    if (chrome.runtime.lastError) {
+        console.error('Error sending content script loaded message:', chrome.runtime.lastError);
+    } else {
+        console.log('Content script loaded message sent successfully');
+    }
+});
+
 let codePatterns = [];
 const processedCodes = new Set();
 let observer = null;

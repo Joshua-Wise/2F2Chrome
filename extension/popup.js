@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const settingsToggle = document.getElementById('settingsToggle');
   const settingsPanel = document.getElementById('settingsPanel');
   const viewHistoryButton = document.getElementById('viewHistory');
+  const statusIndicator = document.getElementById('statusIndicator');
+  
+  updateStatusIndicator();
+  // Check status every 5 seconds
+  setInterval(updateStatusIndicator, 5000);
 
   // Load settings and last code
   chrome.storage.local.get(['lastCode', 'codeHistory', 'recordHistory', 'showNotifications', 'darkMode'], function(result) {
@@ -113,6 +118,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function applyDarkMode(isDarkMode) {
       document.body.classList.toggle('dark-mode', isDarkMode);
+  }
+
+  function updateStatusIndicator() {
+    const statusIndicator = document.getElementById('statusIndicator');
+    if (!statusIndicator) return;
+
+    chrome.runtime.sendMessage({action: "getContentScriptStatus"}, function(response) {
+        if (chrome.runtime.lastError) {
+            console.error('Error checking content script status:', chrome.runtime.lastError);
+            statusIndicator.classList.remove('status-active');
+            statusIndicator.classList.add('status-inactive');
+            statusIndicator.title = 'Error checking content script status';
+            return;
+        }
+
+        if (response && response.active) {
+            statusIndicator.classList.remove('status-inactive');
+            statusIndicator.classList.add('status-active');
+            statusIndicator.title = 'Content script is active';
+        } else {
+            statusIndicator.classList.remove('status-active');
+            statusIndicator.classList.add('status-inactive');
+            statusIndicator.title = 'Content script is inactive';
+        }
+    });
   }
 
   // Initially hide settings panel and code history

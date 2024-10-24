@@ -36,6 +36,27 @@ body {
     padding: 10px;
 }
 
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-active {
+    background-color: #4CAF50;  /* Green */
+}
+
+.status-inactive {
+    background-color: #F44336;  /* Red */
+}
+
+.title-group {
+    display: flex;
+    align-items: center;
+    gap: 4px; /* Controls spacing between title and dot */
+}
+
 .settings-button {
     background: none;
     border: none;

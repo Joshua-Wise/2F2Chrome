@@ -103,19 +103,16 @@ function processMessage(element) {
 }
 
 function recoverFromInvalidation(codeInfo) {
-  console.log('Attempting to recover from extension context invalidation');
-  // Attempt to copy the code to clipboard directly
-  const success = copyTextToClipboard(codeInfo.code);
-  if (success) {
-      console.log('Code copied to clipboard after context invalidation');
-      if ('Notification' in window && Notification.permission === 'granted') {
-          new Notification('2FA Code Detected', {
-              body: `Code ${codeInfo.code} (${codeInfo.platform}) has been copied to your clipboard.`
-          });
-      }
+  console.warn('Extension context was invalidated. A 2FA code was detected but might not have been fully processed by the background script.');
+  if ('Notification' in window && Notification.permission === 'granted') {
+    new Notification('2FA Code Detected (Extension Issue)', {
+        body: `Code ${codeInfo.code} (${codeInfo.platform}) was found. Please check your clipboard. If not copied, the extension might need attention (e.g., reload or reinstall).`
+    });
   } else {
-      console.error('Failed to copy code after context invalidation');
+    console.log('HTML5 Notifications not available or permission denied. Cannot show fallback notification.');
   }
+  // No direct clipboard copy attempt here, background script is responsible.
+  // This function now primarily serves to inform the user about the potential issue.
 }
 
 function copyTextToClipboard(text) {
@@ -199,16 +196,6 @@ window.addEventListener('error', function(event) {
       }
       setTimeout(startObserving, 1000);
   }
-});
-
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    console.log('Message received in content script:', request);
-    if (request.action === "copyToClipboard") {
-        const success = copyTextToClipboard(request.code);
-        console.log('Copy to clipboard result:', success);
-        sendResponse({success: success});
-    }
-    return true;
 });
 
 // Listen for page visibility changes

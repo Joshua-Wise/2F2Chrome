@@ -1,7 +1,22 @@
 // Initialize state
+const OFFSCREEN_DOCUMENT_PATH = 'offscreen.html';
 let state = {
     contentScriptActive: false
 };
+
+async function ensureOffscreenDocument() {
+  if (await chrome.offscreen.hasDocument?.()) {
+    console.log('Offscreen document already exists.');
+    return;
+  }
+  console.log('Creating offscreen document.');
+  await chrome.offscreen.createDocument({
+    url: OFFSCREEN_DOCUMENT_PATH,
+    reasons: [chrome.offscreen.Reason.CLIPBOARD_WRITE],
+    justification: 'Reason: To copy 2FA codes to the clipboard.',
+  });
+  console.log('Offscreen document created.');
+}
 
 // Single message listener for all message types
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -18,29 +33,31 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             break;
 
         case "processPendingCode":
-            console.log('Processing pending code:', request.code);
-            chrome.tabs.sendMessage(sender.tab.id, {
-                action: "copyToClipboard",
-                code: request.code
-            }, (response) => {
-                if (chrome.runtime.lastError) {
-                    console.error('Error copying to clipboard:', chrome.runtime.lastError);
-                    sendResponse({ success: false, error: chrome.runtime.lastError.message });
-                } else if (response && response.success) {
-                    console.log('Code copied successfully');
-                    showNotification(request.code, request.platform)
-                        .then(() => updateLatestCode(request.code, request.platform))
-                        .then(() => sendResponse({ success: true }))
-                        .catch(error => {
-                            console.error('Error in processing:', error);
-                            sendResponse({ success: false, error: error.message });
-                        });
-                } else {
-                    console.error('Failed to copy code to clipboard');
-                    sendResponse({ success: false, error: 'Failed to copy code' });
+            console.log('Background: Received processPendingCode for code:', request.code);
+            ensureOffscreenDocument().then(() => {
+                console.log('Background: Offscreen document ensured. Sending message to offscreen script.');
+                return chrome.runtime.sendMessage({
+                    action: "copyToClipboardOffscreen",
+                    code: request.code
+                });
+            }).then(response => {
+                console.log('Background: Response from offscreen script:', response);
+                if (!response || !response.success) {
+                    throw new Error(response?.error || 'Failed to copy code via offscreen document.');
                 }
+                console.log('Background: Code copied to clipboard successfully via offscreen.');
+                return showNotification(request.code, request.platform);
+            }).then(() => {
+                return updateLatestCode(request.code, request.platform);
+            }).then(() => {
+                console.log('Background: Notification shown and storage updated.');
+                sendResponse({ success: true, message: "Code processed and copied via offscreen." });
+            }).catch(error => {
+                console.error('Background: Error processing code or using offscreen document:', error);
+                sendResponse({ success: false, error: error.message });
             });
-            break;
+            // Not closing document here to allow Chrome to manage its lifecycle or for potential rapid reuse.
+            return true; // Indicate asynchronous response
 
         default:
             console.log('Unknown action:', request.action);

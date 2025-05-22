@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "2F2Chrome",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Automatically captures 2FA codes from Google Messages",
   "permissions": [
     "storage",

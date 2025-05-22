@@ -6,7 +6,8 @@
   "permissions": [
     "storage",
     "notifications",
-    "clipboardWrite"
+    "clipboardWrite",
+    "offscreen"
   ],
   "host_permissions": [
     "https://messages.google.com/*"

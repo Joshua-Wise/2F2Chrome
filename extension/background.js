@@ -12,7 +12,7 @@ async function ensureOffscreenDocument() {
   console.log('Creating offscreen document.');
   await chrome.offscreen.createDocument({
     url: OFFSCREEN_DOCUMENT_PATH,
-    reasons: [chrome.offscreen.Reason.CLIPBOARD_WRITE],
+    reasons: [chrome.offscreen.Reason.CLIPBOARD],
     justification: 'Reason: To copy 2FA codes to the clipboard.',
   });
   console.log('Offscreen document created.');

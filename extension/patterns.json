@@ -18,7 +18,7 @@
       },
       {
         "platformName": "Generic Code Pattern",
-        "platformPattern": "(?:your|the)?\\s*(?:code|pin)(?:\\s+is)?\\s*[:-]\\s*([\\w\\d]{4,8})"
+        "platformPattern": "(?:your|the)?\\s*(?:code|pin)(?:\\s+is)?\\s*[:-]?\\s+([\\w\\d]{4,8})"
       },
       {
         "platformName": "Generic Numeric",

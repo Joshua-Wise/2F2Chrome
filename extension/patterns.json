@@ -1,8 +1,28 @@
 {
     "codePatterns": [
       {
-        "platformName": "Generic",
-        "platformPattern": "(?:verification code|security code|access code|code is):\\s*(\\d{4,8})"
+        "platformName": "Generic OTP",
+        "platformPattern": "(?:OTP|otp)(?:\\s+(?:is|code|:))?\\s*[:-]?\\s*(\\d{4,8})"
+      },
+      {
+        "platformName": "Generic Passcode",
+        "platformPattern": "(?:passcode|pass code)(?:\\s+(?:is|:))?\\s*[:-]?\\s*([\\w\\d]{4,8})"
+      },
+      {
+        "platformName": "Generic Verification",
+        "platformPattern": "(?:verification|verify|authentication|auth)\\s+(?:code|number|pin)(?:\\s+(?:is|:))?\\s*[:-]?\\s*([\\w\\d]{4,8})"
+      },
+      {
+        "platformName": "Generic Security",
+        "platformPattern": "(?:security|access|login)\\s+(?:code|pin)(?:\\s+(?:is|:))?\\s*[:-]?\\s*([\\w\\d]{4,8})"
+      },
+      {
+        "platformName": "Generic Code Pattern",
+        "platformPattern": "(?:your|the)?\\s*(?:code|pin)(?:\\s+is)?\\s*[:-]?\\s+([\\w\\d]{4,8})"
+      },
+      {
+        "platformName": "Generic Numeric",
+        "platformPattern": "(?:verification code|security code|access code|code is)\\s*[:-]?\\s*(\\d{4,8})"
       },
       {
         "platformName": "Twilio",
@@ -54,7 +74,7 @@
       },
       {
         "platformName": "CN General",
-        "platformPattern": "验证码([是为：:\\s]*)(\\d{4,8})"
+        "platformPattern": "验证码(?:[是为：:\\s]*)(\\d{4,8})"
       },
       {
         "platformName": "Geico",
@@ -95,6 +115,22 @@
       {
         "platformName": "Amex SafeKey",
         "platformPattern": "Your Amex SafeKey One-Time Password for INR \\d+\\.\\d\\d is (\\d{6})\\. Valid for \\d+ mins for Card ending xxxxx\\."
+      },
+      {
+        "platformName": "Generic One-Time",
+        "platformPattern": "(?:one-time|one time|1-time|temporary)\\s+(?:password|code|pin|verification)(?:\\s+(?:is|:))?\\s*[:-]?\\s*([\\w\\d]{4,8})"
+      },
+      {
+        "platformName": "Generic Confirmation",
+        "platformPattern": "(?:confirmation|confirm)\\s+(?:code|number)(?:\\s+(?:is|:))?\\s*[:-]?\\s*([\\w\\d]{4,8})"
+      },
+      {
+        "platformName": "Generic Two-Factor",
+        "platformPattern": "(?:two-factor|2fa|two factor|2-factor)\\s+(?:code|authentication)(?:\\s+(?:is|:))?\\s*[:-]?\\s*([\\w\\d]{4,8})"
+      },
+      {
+        "platformName": "Generic Standalone Code",
+        "platformPattern": "^\\s*([\\d]{4,8})\\s*$"
       }
     ]
   }

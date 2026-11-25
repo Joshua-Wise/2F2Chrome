@@ -124,24 +124,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const statusIndicator = document.getElementById('statusIndicator');
     if (!statusIndicator) return;
 
-    chrome.runtime.sendMessage({action: "getContentScriptStatus"}, function(response) {
-        if (chrome.runtime.lastError) {
-            console.error('Error checking content script status:', chrome.runtime.lastError);
-            statusIndicator.classList.remove('status-active');
-            statusIndicator.classList.add('status-inactive');
-            statusIndicator.title = 'Error checking content script status';
+    const setStatus = (active, title) => {
+        statusIndicator.classList.toggle('status-active', active);
+        statusIndicator.classList.toggle('status-inactive', !active);
+        statusIndicator.title = title;
+    };
+
+    // Ask each open Messages tab directly whether it is watching.
+    chrome.tabs.query({ url: 'https://messages.google.com/*' }).then(async tabs => {
+        if (tabs.length === 0) {
+            setStatus(false, 'No Google Messages tab is open');
             return;
         }
-
-        if (response && response.active) {
-            statusIndicator.classList.remove('status-inactive');
-            statusIndicator.classList.add('status-active');
-            statusIndicator.title = 'Content script is active';
-        } else {
-            statusIndicator.classList.remove('status-active');
-            statusIndicator.classList.add('status-inactive');
-            statusIndicator.title = 'Content script is inactive';
+        for (const tab of tabs) {
+            try {
+                const res = await chrome.tabs.sendMessage(tab.id, { action: 'ping' });
+                if (res && res.active) {
+                    setStatus(true, `Watching Google Messages (${res.conversations} conversations)`);
+                    return;
+                }
+            } catch (e) {
+                // No content script in this tab (discarded, or needs a reload).
+            }
         }
+        setStatus(false, 'Google Messages is open but not being watched. Reload the tab.');
     });
   }
 

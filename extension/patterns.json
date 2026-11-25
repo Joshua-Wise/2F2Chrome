@@ -1,140 +1,140 @@
 {
-    "codePatterns": [
-      {
-        "platformName": "Your Code",
-        "platformPattern": "(?:your|the|my)\\s+code(?:\\s+is)?\\s*[:-]?\\s*(\\d{4,8})"
-      },
-      {
-        "platformName": "Generic OTP",
-        "platformPattern": "(?:OTP|otp)(?:\\s+(?:is|code|:))?\\s*[:-]?\\s*(\\d{4,8})"
-      },
-      {
-        "platformName": "Generic Passcode",
-        "platformPattern": "(?:passcode|pass code)(?:\\s+(?:is|:))?\\s*[:-]?\\s*([\\w\\d]{4,8})"
-      },
-      {
-        "platformName": "Generic Verification",
-        "platformPattern": "(?:verification|verify|authentication|auth)\\s+(?:code|number|pin)(?:\\s+(?:is|:))?\\s*[:-]?\\s*([\\w\\d]{4,8})"
-      },
-      {
-        "platformName": "Generic Security",
-        "platformPattern": "(?:security|access|login)\\s+(?:code|pin)(?:\\s+(?:is|:))?\\s*[:-]?\\s*([\\w\\d]{4,8})"
-      },
-      {
-        "platformName": "Generic Code Pattern",
-        "platformPattern": "(?:your|the)?\\s*(?:code|pin)(?:\\s+is)?\\s*[:-]?\\s*([\\w\\d]{4,8})"
-      },
-      {
-        "platformName": "Generic Numeric",
-        "platformPattern": "(?:verification code|security code|access code|code is)\\s*[:-]?\\s*(\\d{4,8})"
-      },
-      {
-        "platformName": "Twilio",
-        "platformPattern": "Your Twilio verification code is: (\\d{6})"
-      },
-      {
-        "platformName": "Google",
-        "platformPattern": "G-(\\d{6}) is your Google verification code"
-      },
-      {
-        "platformName": "Facebook",
-        "platformPattern": "Facebook code: (\\d{5})"
-      },
-      {
-        "platformName": "Amazon",
-        "platformPattern": "Your Amazon verification code is: (\\d{6})"
-      },
-      {
-        "platformName": "Apple",
-        "platformPattern": "Your Apple ID code is: (\\d{6})"
-      },
-      {
-        "platformName": "Microsoft",
-        "platformPattern": "Microsoft code: (\\d{8})"
-      },
-      {
-        "platformName": "Twitter",
-        "platformPattern": "Your Twitter confirmation code is (\\d{6})"
-      },
-      {
-        "platformName": "Instagram",
-        "platformPattern": "Instagram code: (\\d{6})"
-      },
-      {
-        "platformName": "Link by Stripe",
-        "platformPattern": "(\\d{6}) is your Link verification code"
-      },
-      {
-        "platformName": "Chase",
-        "platformPattern": "From: Chase\\nWe'll NEVER call you to ask for this code\\.\\nOne-Time Code:(\\d{8})\\nOnly use this online\\. Code expires in 30 min\\."
-      },
-      {
-        "platformName": "Taishin Bank",
-        "platformPattern": "驗證碼為(\\d{4,8})"
-      },
-      {
-        "platformName": "DigitalOcean",
-        "platformPattern": "([\\w\\d]{6}) is your DigitalOcean verification code\\."
-      },
-      {
-        "platformName": "CN General",
-        "platformPattern": "验证码(?:[是为：:\\s]*)(\\d{4,8})"
-      },
-      {
-        "platformName": "Geico",
-        "platformPattern": "GEICO: Your verification code is: (\\w{6}). It expires in 10 minutes."
-      },
-      {
-        "platformName": "DBS Bank",
-        "platformPattern": "To approve, use [A-Z]{3}-(\\d{6}) within"
-      },
-      {
-        "platformName": "OneLogin",
-        "platformPattern": "Security Code: (\\w{6}) \\n\\nSecurity code will expire in 2 minutes\\."
-      },
-      {
-        "platformName": "USPS",
-        "platformPattern": "USPS Account Services: your validation code is (\\w{6})"
-      },
-      {
-        "platformName": "AOD",
-        "platformPattern": "AOD FCU security code: (\\d{6})"
-      },
-      {
-        "platformName": "MIGov",
-        "platformPattern": "Your passcode is \\n\\d{4}-(\\d{6})\\n\\nThe passcode will expire in 5 minutes."
-      },
-      {
-        "platformName": "MPC",
-        "platformPattern": "Dear [\\s\\S]+,\\n\\nYour security code is: (\\d{5,6})\\n\\nThis code expires in 15 minutes"
-      },
-      {
-        "platformName": "PF Bank",
-        "platformPattern": "^(\\d{8})\\nValid 5 minutes"
-      },
-      {
-        "platformName": "Vodafone",
-        "platformPattern": "Don't share this code with anyone\\. Fraudsters can use it to access your online account and place orders\\. The code is valid for 20 minutes\\. Your code is ([0-9A-Z]{5})\\."
-      },
-      {
-        "platformName": "Amex SafeKey",
-        "platformPattern": "Your Amex SafeKey One-Time Password for INR \\d+\\.\\d\\d is (\\d{6})\\. Valid for \\d+ mins for Card ending xxxxx\\."
-      },
-      {
-        "platformName": "Generic One-Time",
-        "platformPattern": "(?:one-time|one time|1-time|temporary)\\s+(?:password|code|pin|verification)(?:\\s+(?:is|:))?\\s*[:-]?\\s*([\\w\\d]{4,8})"
-      },
-      {
-        "platformName": "Generic Confirmation",
-        "platformPattern": "(?:confirmation|confirm)\\s+(?:code|number)(?:\\s+(?:is|:))?\\s*[:-]?\\s*([\\w\\d]{4,8})"
-      },
-      {
-        "platformName": "Generic Two-Factor",
-        "platformPattern": "(?:two-factor|2fa|two factor|2-factor)\\s+(?:code|authentication)(?:\\s+(?:is|:))?\\s*[:-]?\\s*([\\w\\d]{4,8})"
-      },
-      {
-        "platformName": "Generic Standalone Code",
-        "platformPattern": "^\\s*([\\d]{4,8})\\s*$"
-      }
-    ]
-  }
+  "codePatterns": [
+    {
+      "platformName": "Twilio",
+      "platformPattern": "Your Twilio verification code is: (\\d{6})"
+    },
+    {
+      "platformName": "Google",
+      "platformPattern": "G-(\\d{6}) is your Google verification code"
+    },
+    {
+      "platformName": "Facebook",
+      "platformPattern": "Facebook code: (\\d{5})"
+    },
+    {
+      "platformName": "Amazon",
+      "platformPattern": "Your Amazon verification code is: (\\d{6})"
+    },
+    {
+      "platformName": "Apple",
+      "platformPattern": "Your Apple ID code is: (\\d{6})"
+    },
+    {
+      "platformName": "Microsoft",
+      "platformPattern": "Microsoft code: (\\d{8})"
+    },
+    {
+      "platformName": "Twitter",
+      "platformPattern": "Your Twitter confirmation code is (\\d{6})"
+    },
+    {
+      "platformName": "Instagram",
+      "platformPattern": "Instagram code: (\\d{6})"
+    },
+    {
+      "platformName": "Link by Stripe",
+      "platformPattern": "(\\d{6}) is your Link verification code"
+    },
+    {
+      "platformName": "Chase",
+      "platformPattern": "From: Chase\\nWe'll NEVER call you to ask for this code\\.\\nOne-Time Code:(\\d{8})\\nOnly use this online\\. Code expires in 30 min\\."
+    },
+    {
+      "platformName": "Taishin Bank",
+      "platformPattern": "驗證碼為(\\d{4,8})"
+    },
+    {
+      "platformName": "DigitalOcean",
+      "platformPattern": "([\\w\\d]{6}) is your DigitalOcean verification code\\."
+    },
+    {
+      "platformName": "CN General",
+      "platformPattern": "验证码(?:[是为：:\\s]*)(\\d{4,8})"
+    },
+    {
+      "platformName": "Geico",
+      "platformPattern": "GEICO: Your verification code is: (\\w{6}). It expires in 10 minutes."
+    },
+    {
+      "platformName": "DBS Bank",
+      "platformPattern": "To approve, use [A-Z]{3}-(\\d{6}) within"
+    },
+    {
+      "platformName": "OneLogin",
+      "platformPattern": "Security Code: (\\w{6}) \\n\\nSecurity code will expire in 2 minutes\\."
+    },
+    {
+      "platformName": "USPS",
+      "platformPattern": "USPS Account Services: your validation code is (\\w{6})"
+    },
+    {
+      "platformName": "AOD",
+      "platformPattern": "AOD FCU security code: (\\d{6})"
+    },
+    {
+      "platformName": "MIGov",
+      "platformPattern": "Your passcode is \\n\\d{4}-(\\d{6})\\n\\nThe passcode will expire in 5 minutes."
+    },
+    {
+      "platformName": "MPC",
+      "platformPattern": "Dear [\\s\\S]+,\\n\\nYour security code is: (\\d{5,6})\\n\\nThis code expires in 15 minutes"
+    },
+    {
+      "platformName": "PF Bank",
+      "platformPattern": "^(\\d{8})\\nValid 5 minutes"
+    },
+    {
+      "platformName": "Vodafone",
+      "platformPattern": "Don't share this code with anyone\\. Fraudsters can use it to access your online account and place orders\\. The code is valid for 20 minutes\\. Your code is ([0-9A-Z]{5})\\."
+    },
+    {
+      "platformName": "Amex SafeKey",
+      "platformPattern": "Your Amex SafeKey One-Time Password for INR \\d+\\.\\d\\d is (\\d{6})\\. Valid for \\d+ mins for Card ending xxxxx\\."
+    },
+    {
+      "platformName": "Generic One-Time",
+      "platformPattern": "(?:one-time|one time|1-time|temporary)\\s+(?:password|passcode|code|pin|verification code)(?:\\s+(?:is|was))?\\s*[:#-]?\\s*((?=[A-Za-z0-9]*\\d)[A-Za-z0-9]{4,8})\\b"
+    },
+    {
+      "platformName": "Generic Two-Factor",
+      "platformPattern": "(?:two-factor|2fa|two factor|2-factor)\\s+(?:code|authentication code)(?:\\s+(?:is|was))?\\s*[:#-]?\\s*((?=[A-Za-z0-9]*\\d)[A-Za-z0-9]{4,8})\\b"
+    },
+    {
+      "platformName": "Generic Verification",
+      "platformPattern": "(?:verification|verify|authentication|auth)\\s+(?:code|number|pin)(?:\\s+(?:is|was))?\\s*[:#-]?\\s*((?=[A-Za-z0-9]*\\d)[A-Za-z0-9]{4,8})\\b"
+    },
+    {
+      "platformName": "Generic Security",
+      "platformPattern": "(?:security|access|login|sign-in|sign in)\\s+(?:code|pin)(?:\\s+(?:is|was))?\\s*[:#-]?\\s*((?=[A-Za-z0-9]*\\d)[A-Za-z0-9]{4,8})\\b"
+    },
+    {
+      "platformName": "Generic Confirmation",
+      "platformPattern": "(?:confirmation|confirm)\\s+(?:code|number)(?:\\s+(?:is|was))?\\s*[:#-]?\\s*((?=[A-Za-z0-9]*\\d)[A-Za-z0-9]{4,8})\\b"
+    },
+    {
+      "platformName": "Generic Passcode",
+      "platformPattern": "(?:passcode|pass code)(?:\\s+(?:is|was))?\\s*[:#-]?\\s*((?=[A-Za-z0-9]*\\d)[A-Za-z0-9]{4,8})\\b"
+    },
+    {
+      "platformName": "Generic OTP",
+      "platformPattern": "\\bOTP(?:\\s+code)?(?:\\s+(?:is|was))?\\s*[:#-]?\\s*(\\d{4,8})"
+    },
+    {
+      "platformName": "Generic Code Is",
+      "platformPattern": "\\bcode(?:\\s+(?:is|was))?\\s*[:#-]?\\s*(\\d{4,8})\\b"
+    },
+    {
+      "platformName": "Generic Code First",
+      "platformPattern": "\\b(\\d{4,8})\\s+(?:is|as)\\s+your\\b[^.\\n]{0,40}\\b(?:code|pin|otp|passcode|password)\\b"
+    },
+    {
+      "platformName": "Generic PIN",
+      "platformPattern": "\\bpin(?:\\s+(?:is|was))?\\s*[:#-]?\\s*(\\d{4,8})\\b"
+    },
+    {
+      "platformName": "Generic Standalone Code",
+      "platformPattern": "^\\s*(\\d{4,8})\\s*$"
+    }
+  ]
+}

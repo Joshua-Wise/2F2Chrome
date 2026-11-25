@@ -15,9 +15,9 @@
 
 ## How It Works
 
-1. **Content Script**: The extension uses a content script (`content.js`) that runs on the Google Messages website. This script monitors incoming messages for 2FA codes using predefined patterns.
+1. **Content Script**: The extension uses a content script (`content.js`) that runs on the Google Messages website. It remembers the preview text of each conversation in the list and checks a conversation again whenever that text changes, so a new code from a sender you've heard from before is still caught. New messages in the open conversation are checked too. Codes already on the page when it loads are never copied. It keeps working with the Messages tab in the background, and the extension stops Chrome's Memory Saver from unloading that tab.
 
-2. **Pattern Matching**: The extension uses a set of regular expressions defined in `patterns.json` to identify 2FA codes from various services. These patterns are designed to catch codes from popular platforms and generic formats. (Thanks to the [2FHey project](https://github.com/SoFriendly/2fhey) for the initial patterns)
+2. **Pattern Matching**: The extension uses a set of regular expressions defined in `patterns.json` (service-specific patterns first, then generic ones), checked by `detector.js`, to identify 2FA codes from various services. These patterns are designed to catch codes from popular platforms and generic formats. (Thanks to the [2FHey project](https://github.com/SoFriendly/2fhey) for the initial patterns)
 
 3. **Code Extraction**: When a matching pattern is found, the content script extracts the 2FA code and sends it to the background script.
 
@@ -46,6 +46,12 @@ Option B:
 2. Navigate to [Google Messages](https://messages.google.com/) in your browser.
 3. When a message containing a 2FA code is received, the extension will automatically detect and copy it.
 4. Optionally, Click the 2F2Chrome icon in the toolbar to view the latest captured code, view settings, or access the code history.
+
+## Development
+
+- `npm test` runs the pattern tests in `tests/detector.test.js`. Add a real message there whenever you add or change a pattern.
+- `npm install && npm run test:dom` runs the content script against a simulated Google Messages page.
+- To see what the content script is doing, set `DEBUG = true` at the top of `extension/content.js` and reload the extension.
 
 ## Privacy and Security
 
